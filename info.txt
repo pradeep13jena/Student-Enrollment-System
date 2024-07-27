@@ -1,0 +1,130 @@
+bg-blue-600
+---------------------------
+<form action="">
+    <label for="studentId">Student id:</label><br>
+    <input class="w-full mb-4 h-10 rounded-sm" id="studentId" type="number" placeholder="Pradeep Jena" required><br>
+    <label for="studentName">Name:</label><br>
+    <input class="w-full mb-4 h-10 rounded-sm" id="studentName" type="text" required><br>
+    <label for="studentEmail">Email:</label><br>
+    <input class="w-full mb-4 h-10 rounded-sm" id="studentEmail" type="email" required><br>
+    <label for="studentContact">Contact:</label><br>
+    <input class="w-full mb-4 h-10 rounded-sm" id="studentContact" type="number"> <br>
+    <select name="course" id="courseName">
+        <option value="Full Stack Development">Full Stack Development</option>
+        <option value="Front End Development">Front End Development</option>
+        <option value="Back End Development">Back End Development</option>
+        <option value="Human Resource">Human Resource</option>
+        <option value="UI/UX Design Course">UI/UX Design Course</option>
+        <option value="Product Management Course">Product Management Course</option>
+        <option value="other">Other</option>
+    </select><br>
+    <button>Submit Details</button>
+</form>
+
+
+<div class="displaytable">
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Course</th>
+        </tr>
+        <tr>
+            <td>001</td>
+            <td>Pradeep Jena</td>
+            <td>abc@gmail.com</td>
+            <td>8108817991</td>
+            <td>abc@gmail.com</td>
+        </tr>
+    </table>
+</div>
+
+<h1 class="text-4xl mb-4">Student Enrollment System</h1>
+<p class="text-base m-2">Our student enrollment form provides a streamlined process for prospective students to apply and enroll in our educational programs.</p>
+
+<table class="lg:mx-12 border  overflow-x-auto border-blue-800">
+    <tr class="border border-blue-800 px-3">
+        <th class="border border-blue-800 p-3">Id</th>
+        <th class="border border-blue-800 p-3">Name</th>
+        <th class="border border-blue-800 p-3">Email</th>
+        <th class="border border-blue-800 p-3">Contact</th>
+        <th class="border border-blue-800 p-3">Course</th>
+        <th class="border border-blue-800 p-3">Delete / Reset</th>
+    </tr>
+    <tr>
+        <td id="tableStudentId" class="border border-blue-800 p-3">001</td>
+        <td id="tableStudentName" class="border border-blue-800 p-3">Pradeep Jena</td>
+        <td id="tableStudentEmail" class="border border-blue-800 p-3">abc@gmail.com</td>
+        <td id="tableStudentContact" class="border border-blue-800 p-3">8108817991</td>
+        <td id="tableStudentCourse" class="border border-blue-800 p-3">Full Stack Development</td>
+        <td id="tableButtons" class="text-xl">
+            <button id="deleteButton" class="mx-6 md:mx-6 text-red-700"><i class="fa-regular fa-trash-can"></i></button>
+            <button id="resetButton" class=" mx-6 md:mx-4 text-green-600"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+        </td>
+    </tr>
+</table>
+
+id="tableStudentId"
+id="tableStudentName"
+id="tableStudentEmail"
+id="tableStudentContact"
+id="tableStudentCourse"
+id="tableButtons"
+
+<tbody>
+    <tr>
+        <td id="tableStudentId" class="border border-blue-800 py-3 px-5">001</td>
+        <td id="tableStudentName" class="border border-blue-800 py-3 px-5">Pradeep Jena</td>
+        <td id="tableStudentEmail" class="border border-blue-800 py-3 px-5">abc@gmail.com</td>
+        <td id="tableStudentContact" class="border border-blue-800 py-3 px-5">8108817991</td>
+        <td id="tableStudentCourse" class="border border-blue-800 py-3 px-5">Full Stack Development</td>
+        <td id="tableButtons" class="border border-blue-800 py-3 px-5">
+            <div class="flex justify-between md:justify-evenly gap-7">
+                <button class="text-red-600 text-xl md:text-2xl"><i class="fa-regular fa-trash-can"></i></button>
+                <button class="text-green-500 text-xl md:text-2xl"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+            </div>
+        </td>
+    </tr>
+</tbody>
+
+What to do?
+--> to add required
+
+<tr>
+    <td id="tableStudentId" class="border border-blue-800 py-3 px-5">001</td>
+    <td id="tableStudentName" class="border border-blue-800 py-3 px-5">Pradeep Jena</td>
+    <td id="tableStudentEmail" class="border border-blue-800 py-3 px-5">abc@gmail.com</td>
+    <td id="tableStudentContact" class="border border-blue-800 py-3 px-5">8108817991</td>
+    <td id="tableStudentCourse" class="border border-blue-800 py-3 px-5">Full Stack Development</td>
+    <td id="tableButtons" class="border border-blue-800 py-3 px-5">
+        <div class="flex justify-between md:justify-evenly gap-7">
+            <button class="text-red-600 text-xl md:text-2xl"><i class="fa-regular fa-trash-can"></i></button>
+            <button class="text-green-500 text-xl md:text-2xl"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+        </div>
+    </td>
+</tr>
+
+tableStudentName.innerHTML = name.value
+tableStudentEmail.innerHTML = email.value
+tableStudentContact.innerHTML = contact.value
+tableStudentCourse.innerHTML = course.value
+
+else if (!expr.test(contact.value)){
+        alert('Invalid Contact Number')
+}
+
+<tr>
+    <td class="tabled">1</td>
+    <td class="tabled">Pradeep Jena</td>
+    <td class="tabled">abc@gmail.com</td>
+    <td class="tabled">8108817991</td>
+    <td class="tabled">Back End Development</td>
+    <td class="tabled">
+        <div class="buttonDiv">
+            <button class="deleteButton"><i class="fa-regular fa-trash-can"></i></button>
+            <button class="resetButton"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+        </div>
+    </td>
+</tr>

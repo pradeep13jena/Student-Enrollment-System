@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Yeseva+One&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.tabled{
+    @apply border border-blue-800 py-3 px-5
+}
+
+.buttonDiv{
+    @apply flex justify-between md:justify-evenly gap-7
+}
+
+.deleteButton{
+    @apply text-red-600 text-xl md:text-2xl
+}
+
+.resetButton{
+    @apply text-green-500 text-xl md:text-2xl
+}
