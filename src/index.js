@@ -6,6 +6,7 @@ const course = document.querySelector('#courseName')
 const button = document.querySelector('#button')
 const tbody = document.querySelector('#tbody')
 let contactExpr = /^[6-9][0-9]{9}$/
+let emailExpr = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 button.addEventListener('click', addTasks)
 
@@ -59,15 +60,18 @@ function addTasks(){
         alert('Enter your name')
     } else if(email.value == '') {
         alert('Enter your e-mail')
+    } else if(!emailExpr.test(email.value)){
+        alert('Invalid Email address')
     } else if(contact.value == '') {
         alert('Enter your contact number')
     } else if (!contactExpr.test(contact.value)){
         alert('Invalid Contact Number')
     }else {
         tbody.appendChild(tableROW)   
+        id.value = name.value = email.value = contact.value = ''
     }
 
-    id.value = name.value = email.value = contact.value = course.value = ''
+    localStorage.setItem('tableBody', tbody.innerHTML)
 
 }
 
@@ -75,10 +79,11 @@ tbody.addEventListener('click', buttons)
 
 function buttons(event){
     const item = event.target
+    const deleteItem = item.parentElement.parentElement.parentElement.parentElement
 
     if (item.classList[0] === 'fa-regular') {
-        deleteItem = item.parentElement.parentElement.parentElement.parentElement
         deleteItem.remove()
+        localStorage.setItem('tableBody', tbody.innerHTML)
     } else if (item.classList[0] === 'fa-solid'){
         // Find the value
         const idReset = item.parentElement.parentElement.parentElement.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.innerHTML
@@ -93,5 +98,15 @@ function buttons(event){
         email.value = emailReset
         contact.value = contactReset
         course.value = courseReset
+
+        //Delete Items
+        deleteItem.remove() 
     }
 }
+
+function restoreElement(){
+    savedValue = localStorage.getItem('tableBody')
+    tbody.innerHTML = savedValue
+}
+
+window.onload = restoreElement
