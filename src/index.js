@@ -8,8 +8,6 @@ const tbody = document.querySelector('#tbody')
 let contactExpr = /^[6-9][0-9]{9}$/
 let emailExpr = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-button.addEventListener('click', addTasks)
-
 function addTasks(){
     // Element Creatation
     const tableROW = document.createElement('tr')
@@ -75,7 +73,7 @@ function addTasks(){
 
 }
 
-tbody.addEventListener('click', buttons)
+button.addEventListener('click', addTasks)
 
 function buttons(event){
     const item = event.target
@@ -103,6 +101,8 @@ function buttons(event){
         deleteItem.remove() 
     }
 }
+
+tbody.addEventListener('click', buttons)
 
 function restoreElement(){
     savedValue = localStorage.getItem('tableBody')
