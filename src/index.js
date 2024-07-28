@@ -6,7 +6,8 @@ const course = document.querySelector('#courseName')
 const button = document.querySelector('#button')
 const tbody = document.querySelector('#tbody')
 let contactExpr = /^[6-9][0-9]{9}$/
-let emailExpr = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+let emailExpr = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/
+let nameExpr = /^[a-zA-Z ]+$/
 
 function addTasks(){
     // Element Creatation
@@ -56,14 +57,16 @@ function addTasks(){
         alert('Enter your Id')
     } else if(name.value == '') {
         alert('Enter your name')
+    } else if(!nameExpr.test(name.value)){
+        alert('Invalid Name, Name should not contain any special characters or numbers')
     } else if(email.value == '') {
         alert('Enter your e-mail')
     } else if(!emailExpr.test(email.value)){
-        alert('Invalid Email address')
+        alert('Invalid Email address, example - abc@gmail.com')
     } else if(contact.value == '') {
         alert('Enter your contact number')
     } else if (!contactExpr.test(contact.value)){
-        alert('Invalid Contact Number')
+        alert('Invalid Contact Number, Should have 10 digits starting from [6-9]')
     }else {
         tbody.appendChild(tableROW)   
         id.value = name.value = email.value = contact.value = ''
