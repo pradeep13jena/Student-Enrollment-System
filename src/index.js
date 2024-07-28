@@ -1,3 +1,4 @@
+//Declaring all theDOM Elements
 const id = document.querySelector('#studentId')
 const name = document.querySelector('#studentName')
 const email = document.querySelector('#studentEmail')
@@ -5,10 +6,13 @@ const contact = document.querySelector('#studentContact')
 const course = document.querySelector('#courseName')
 const button = document.querySelector('#button')
 const tbody = document.querySelector('#tbody')
+const buttonToBulkClear = document.getElementById('buttonAll')
 let contactExpr = /^[6-9][0-9]{9}$/
 let emailExpr = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/
 let nameExpr = /^[a-zA-Z ]+$/
 
+
+//Function to add data to the table
 function addTasks(){
     // Element Creatation
     const tableROW = document.createElement('tr')
@@ -53,6 +57,7 @@ function addTasks(){
     tableROW.appendChild(tableStudentCourse)
     tableROW.appendChild(tableStudentButton)
 
+    // Applying condition to recheck every detail entered
     if (id.value == ''){
         alert('Enter your Id')
     } else if(name.value == '') {
@@ -71,18 +76,24 @@ function addTasks(){
         tbody.appendChild(tableROW)   
         id.value = name.value = email.value = contact.value = ''
     }
-
+    
+    // Initializing Local Storage
     localStorage.setItem('tableBody', tbody.innerHTML)
 
 }
-
+// Calling the function after click to add the function
 button.addEventListener('click', addTasks)
+//===========================================================
 
+
+
+// Function to delete and reset the data
 function buttons(event){
     const item = event.target
     const deleteItem = item.parentElement.parentElement.parentElement.parentElement
 
     if (item.classList[0] === 'fa-regular') {
+        //  Deleting the item and store the body
         deleteItem.remove()
         localStorage.setItem('tableBody', tbody.innerHTML)
     } else if (item.classList[0] === 'fa-solid'){
@@ -105,11 +116,37 @@ function buttons(event){
     }
 }
 
+// Calling the function after click to delete or reset the data
 tbody.addEventListener('click', buttons)
+//===========================================================
 
+
+
+// Function to delete all the data 
+function clearAll(){
+    const tableToDelete = tbody
+    if (tbody.innerHTML == '') {
+        alert('Nothing to delete')
+    } else {
+        while (tbody.firstChild) {
+            tbody.removeChild(tbody.firstChild); // Remove all child elements
+        }
+    }
+    localStorage.setItem('tableBody', tbody.innerHTML)
+}
+
+// Calling the function after click to delete All the data
+buttonToBulkClear.addEventListener('click', clearAll)
+//===========================================================
+
+
+
+// Function defined to do the work after reload
 function restoreElement(){
     savedValue = localStorage.getItem('tableBody')
     tbody.innerHTML = savedValue
 }
 
+//Using this onload method
 window.onload = restoreElement
+//===========================================================

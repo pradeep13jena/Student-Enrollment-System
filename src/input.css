@@ -12,9 +12,9 @@
 }
 
 .deleteButton{
-    @apply text-red-600 text-xl md:text-2xl
+    @apply text-red-600 text-xl md:text-2xl hover:scale-125 transition duration-75
 }
 
 .resetButton{
-    @apply text-green-500 text-xl md:text-2xl
+    @apply text-green-500 text-xl md:text-2xl hover:scale-125 transition duration-75
 }
